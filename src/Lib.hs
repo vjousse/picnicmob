@@ -20,4 +20,11 @@ type TransitionProbabilityFunction = Int -> Int -> Float -> Float
 type MotionFunction a              = StdGen -> a -> (StdGen,a)
 
 picnic :: IO ()
-picnic = putStrLn "Hello World! Let's have a picnic! \n"
+picnic = do
+  putStrLn "Hello World! Let's have a picnic! \n"
+  people_text <- readFile "people.txt"
+  let people :: [Person]
+      people  = read people_text
+
+  putStr "Number of people coming: "
+  print (length people)
