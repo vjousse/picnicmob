@@ -38,6 +38,11 @@ picnic = do
   let writePolygons :: [(Color,Polygon)] -> String
       writePolygons p = "<svg xmlns=\"http://www.w3.org/2000/svg\">"++(concatMap writePolygon p)++"</svg>"
 
+  -- colorize c p = zip (repeat c) p
+  -- colorize c = zip (repeat c)
+  -- colorize c = zip $ repeat c
+  -- colorize c = (zip.repeat) c
+  -- and then the following code
   let colorize :: Color -> [Polygon] -> [(Color,Polygon)]
       colorize = zip.repeat
 
