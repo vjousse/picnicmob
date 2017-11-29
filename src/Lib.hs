@@ -41,6 +41,7 @@ picnic = do
   let colorize :: Color -> [Polygon] -> [(Color,Polygon)]
       colorize = zip.repeat
 
-  let rainbow@[red,green,blue,yellow,purple,teal] = map colorize [(255,0,0),(0,255,0),(0,0,255),(255,255,0),(255,0,255),(0,255,255)]
+  let rainbow :: [[Polygon] -> [(Color, Polygon)]]
+      rainbow@[red,green,blue,yellow,purple,teal] = map colorize [(255,0,0),(0,255,0),(0,0,255),(255,255,0),(255,0,255),(0,255,255)]
 
   writeFile "tut0.svg" $ writePolygons (blue [[(100,100),(200,100),(200,200),(100,200)],[(200,200),(300,200),(300,300),(200,300)]])
