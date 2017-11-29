@@ -41,6 +41,9 @@ picnic = do
   let colorize :: Color -> [Polygon] -> [(Color,Polygon)]
       colorize = zip.repeat
 
+  -- The @ syntax magically define a list (befor the @) and pattern match
+  -- it's content (colors after the @)
+  -- See https://stackoverflow.com/questions/1153465/what-does-the-symbol-mean-in-reference-to-lists-in-haskell
   let rainbow :: [[Polygon] -> [(Color, Polygon)]]
       rainbow@[red,green,blue,yellow,purple,teal] = map colorize [(255,0,0),(0,255,0),(0,0,255),(255,255,0),(255,0,255),(0,255,255)]
 
